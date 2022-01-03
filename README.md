@@ -8,6 +8,6 @@ poetry install
 ```
 ### Start script
 ```sh
-cd ch03-first-api
+cd src
 poetry run uvicorn main:app
 ```
