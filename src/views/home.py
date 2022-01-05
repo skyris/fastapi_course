@@ -18,6 +18,5 @@ def index(request: Request):
 @router.get('/about')
 @template(template_file='home/about.html')
 def about(request: Request):
-    # vm = ViewModelBase(request)
-    # TODO: use the vm
-    return {}
+    vm = ViewModelBase(request)
+    return vm.to_dict()
