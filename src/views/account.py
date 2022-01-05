@@ -1,25 +1,33 @@
 import fastapi
+from fastapi import Request
 from fastapi_chameleon import template
+from viewmodels.account.account_viewmodel import AccountViewModel
+from viewmodels.account.register_viewmodel import RegisterViewModel
+from viewmodels.account.login_viewmodel import LoginViewModel
 
 
 router = fastapi.APIRouter()
 
 
 @router.get('/account')
-def about():
-    return {}
+def index(request: Request):
+    vm = AccountViewModel(request)
+    return vm.to_dict()
 
 
 @router.get('/account/register')
-def register():
-    return {}
+def register(request: Request):
+    vm = RegisterViewModel(request)
+    return vm.to_dict()
 
 
 @router.get('/account/login')
-def login():
-    return {}
+def login(request: Request):
+    vm = LoginViewModel(request)
+    return vm.to_dict()
 
 
 @router.get('/account/logout')
-def logout():
-    return {}
+def logout(request: Request):
+    vm = LoginViewModel(request)
+    return vm.to_dict()
